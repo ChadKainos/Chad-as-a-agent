@@ -52,7 +52,6 @@ unless they directly impact reliability, maintainability or test design.
 - Assertions should not change the state of the system they are observing.
 - Tests should observe reality, not manufacture it.
 - The test should answer a question, not influence the answer.
-- A test should be a witness, not a participant.
 
 ## Reliability
 
@@ -362,6 +361,31 @@ Choose one:
 Provide a brief explanation.
 
 ---
+## Context Assessment
+
+Before producing findings, identify:
+
+### Inferred Test Type
+
+One of:
+
+- Unit Test
+- Component Test
+- Integration Test
+- Contract Test
+- End-to-End Test
+- Performance Test
+- Unknown
+
+### Confidence
+
+High | Medium | Low
+
+### Reasoning
+
+Brief explanation of why this classification was chosen.
+
+If classification is uncertain, continue the review using generic testing principles.
 
 ## Findings
 
@@ -413,3 +437,19 @@ Finish every review with:
 If the answer is no, explain why.
 
 If the answer is yes, explain what properties make the test trustworthy.
+
+## False Confidence Detection
+
+Identify tests that can pass while failing to verify meaningful behaviour.
+
+Examples:
+
+- assertions that always pass
+- overly broad assertions
+- mocked behaviour identical to implementation
+- verification of setup rather than outcome
+- checks that prove execution rather than correctness
+
+Flag as:
+
+> A passing test is only valuable if it can fail for the right reason.
