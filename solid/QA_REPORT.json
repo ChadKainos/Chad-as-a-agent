@@ -1,0 +1,18 @@
+{
+  "files": [
+    "QA_REPORT.json",
+    "README.md",
+    "solid-core.skill.md",
+    "solid-dip.skill.md",
+    "solid-isp.skill.md",
+    "solid-lsp.skill.md",
+    "solid-ocp.skill.md",
+    "solid-pattern-library.skill.md",
+    "solid-refactor.skill.md",
+    "solid-review.skill.md",
+    "solid-srp.skill.md",
+    "solid-suite.manifest.json",
+    "solid-techdebt.skill.md"
+  ],
+  "self_reference_issues": []
+}

@@ -1,0 +1,133 @@
+{
+  "suite": "solid-agent-ready-skills",
+  "version": "draft-2-agent-ready",
+  "load_order": [
+    "solid-core",
+    "solid-srp",
+    "solid-ocp",
+    "solid-lsp",
+    "solid-isp",
+    "solid-dip",
+    "solid-review",
+    "solid-refactor",
+    "solid-techdebt",
+    "solid-pattern-library"
+  ],
+  "skills": [
+    {
+      "file": "solid-core.skill.md",
+      "name": "solid-core",
+      "title": "SOLID Core Operating Context",
+      "description": "Shared SOLID philosophy: change management, scope control, truthfulness, and change-impact framing.",
+      "use_when": "Load before all other SOLID skills.",
+      "depends_on": []
+    },
+    {
+      "file": "solid-review.skill.md",
+      "name": "solid-review",
+      "title": "SOLID Review Orchestrator",
+      "description": "Coordinates SRP, OCP, LSP, ISP, and DIP for non-trivial code generation, review, and refactoring.",
+      "use_when": "Use for any change that can affect consumers, contracts, behaviour, architecture, tests, or future extension.",
+      "depends_on": [
+        "solid-core",
+        "solid-srp",
+        "solid-ocp",
+        "solid-lsp",
+        "solid-isp",
+        "solid-dip",
+        "solid-refactor",
+        "solid-techdebt"
+      ]
+    },
+    {
+      "file": "solid-srp.skill.md",
+      "name": "solid-srp",
+      "title": "Single Responsibility Principle Reviewer",
+      "description": "Reviews responsibility boundaries from statement to system level using the subject-changing AND Test.",
+      "use_when": "Use first in SOLID review when code may mix jobs, side effects, inputs, outputs, or responsibilities.",
+      "depends_on": [
+        "solid-core"
+      ]
+    },
+    {
+      "file": "solid-ocp.skill.md",
+      "name": "solid-ocp",
+      "title": "Open Closed Principle Reviewer",
+      "description": "Reviews whether change should modify the original abstraction or extend it based on consumer impact and completeness.",
+      "use_when": "Use after SRP to decide whether behaviour belongs in existing code or should be introduced through extension/composition.",
+      "depends_on": [
+        "solid-core",
+        "solid-srp"
+      ]
+    },
+    {
+      "file": "solid-lsp.skill.md",
+      "name": "solid-lsp",
+      "title": "Liskov Substitution Principle Reviewer",
+      "description": "Reviews whether substitutes preserve trust, behaviour, contracts, side effects, exceptions, and consumer expectations.",
+      "use_when": "Use when one implementation, test double, adapter, union type, generic, API version, or component claims to stand in for another.",
+      "depends_on": [
+        "solid-core",
+        "solid-srp",
+        "solid-ocp"
+      ]
+    },
+    {
+      "file": "solid-isp.skill.md",
+      "name": "solid-isp",
+      "title": "Interface Segregation Principle Reviewer",
+      "description": "Reviews whether consumers depend only on coherent contracts they need, without bloated contracts or meaningless fragments.",
+      "use_when": "Use for interfaces, props, DTOs, request/response objects, config, service contracts, modules, packages, APIs, and event schemas.",
+      "depends_on": [
+        "solid-core",
+        "solid-srp",
+        "solid-lsp"
+      ]
+    },
+    {
+      "file": "solid-dip.skill.md",
+      "name": "solid-dip",
+      "title": "Dependency Inversion Principle Reviewer",
+      "description": "Reviews whether high-level code depends on contracts rather than concrete implementation choices.",
+      "use_when": "Use when code creates, imports, configures, or depends on services, SDKs, clients, loggers, repositories, providers, packages, or infrastructure.",
+      "depends_on": [
+        "solid-core",
+        "solid-lsp",
+        "solid-isp"
+      ]
+    },
+    {
+      "file": "solid-refactor.skill.md",
+      "name": "solid-refactor",
+      "title": "SOLID Refactor Playbook",
+      "description": "Provides pragmatic, scope-controlled refactoring guidance to improve SOLID compliance without rewriting the world.",
+      "use_when": "Use when a review finds a SOLID problem and the user needs the smallest safe improvement or refactor plan.",
+      "depends_on": [
+        "solid-core",
+        "solid-review"
+      ]
+    },
+    {
+      "file": "solid-techdebt.skill.md",
+      "name": "solid-techdebt",
+      "title": "SOLID Technical Debt Handler",
+      "description": "Defines when SOLID compromise can be accepted, classified, recorded, and kept visible.",
+      "use_when": "Use when a SOLID issue is real but cannot be fixed safely within current scope, delivery constraints, or ownership boundaries.",
+      "depends_on": [
+        "solid-core",
+        "solid-review",
+        "solid-refactor"
+      ]
+    },
+    {
+      "file": "solid-pattern-library.skill.md",
+      "name": "solid-pattern-library",
+      "title": "SOLID Pattern Library",
+      "description": "Guides comparison and application of known design patterns and recognition of anti-patterns without architecture cosplay.",
+      "use_when": "Use when a known pattern may solve a problem space, or when comparing design options and avoiding pattern abuse.",
+      "depends_on": [
+        "solid-core"
+      ]
+    }
+  ]
+}
